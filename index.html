@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>这是OYY的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="简单加入个人对AI及CS的学习心得">
+<meta property="og:type" content="website">
+<meta property="og:title" content="这是OYY的个人博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="这是OYY的个人博客">
+<meta property="og:description" content="简单加入个人对AI及CS的学习心得">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="oyy">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="这是OYY的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">这是OYY的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-小领域知识库介绍与构建（一）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T02:19:36.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/">小领域知识库介绍与构建（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="首先什么是小领域知识库"><a href="#首先什么是小领域知识库" class="headerlink" title="首先什么是小领域知识库"></a>首先什么是小领域知识库</h2><p>在知识领域研究的人群应该对知识图谱有了一个大概的了解，此处不再对知识图谱再次科普，我将直接介绍知识库。知识库是存储类似于（主-谓-宾）的三元组，三元组的表述方式一般为（头实体-关系-尾实体）。往往现存的知识库是从一些百科上爬虫下来的全领域知识。往往我们在做数据分析时这样90%的数据就是领域之外的数据，将所有数据放入模型将会造成大量的冗余计算。</p>
+<p>因此，引出了小领域知识库，将所需的领域知识库从全知识库中剥离出来，将会大大降低后续研究工作的复杂度。</p>
+<h2 id="如何构建小领域知识库"><a href="#如何构建小领域知识库" class="headerlink" title="如何构建小领域知识库"></a>如何构建小领域知识库</h2><p>介绍完了小领域知识库的概念和构建动机。了解到小领域知识库的实体搭建。</p>
+<h3 id="命名实体识别（实体构建"><a href="#命名实体识别（实体构建" class="headerlink" title="命名实体识别（实体构建:"></a>命名实体识别（实体构建:</h3><p>使用thulac工具进行分词，词性标注，命名实体识别（仅人名，地名，机构名） 为了识别农业领域特定实体，我们需要：</p>
+<p>1.分词，词性标注，命名实体识别</p>
+<p>2.以识别为命名实体（person，location，organzation）的，若实体库没有，可以标注出来</p>
+<p>3.对于非命名实体部分，采用一定的词组合和词性规则，在O(n)时间扫描所有分词，过滤不可能为农业实体的部分（例如动词肯定不是农业实体）</p>
+<p>4.对于剩余词及词组合，匹配知识库中以分好类的实体。如果没有匹配到实体，或者匹配到的实体属于0类（即非实体），则将其过滤掉。</p>
+<p>5.实体的分类算法见下文。</p>
+<h3 id="实体分类："><a href="#实体分类：" class="headerlink" title="实体分类："></a>实体分类：</h3><p>特征提取：</p>
+<p><img src="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/1.jpg" alt="特征提取"></p>
+<h3 id="分类器：KNN算法"><a href="#分类器：KNN算法" class="headerlink" title="分类器：KNN算法"></a>分类器：KNN算法</h3><p>无需表示成向量，比较相似度即可</p>
+<p>K值通过网格搜索得到</p>
+<h3 id="定义两个页面的相似度sim-p1-p2"><a href="#定义两个页面的相似度sim-p1-p2" class="headerlink" title="定义两个页面的相似度sim(p1,p2):"></a>定义两个页面的相似度sim(p1,p2):</h3><p>1.title之间的词向量的余弦相似度(利用fasttext计算的词向量能够避免out of vocabulary)</p>
+<p>2.2组openType之间的词向量的余弦相似度的平均值</p>
+<p>3.相同的baseInfoKey的IDF值之和（因为‘中文名’这种属性贡献应该比较小）</p>
+<p>4.相同baseInfoKey下baseInfoValue相同的个数</p>
+<p>5.预测一个页面时，由于KNN要将该页面和训练集中所有页面进行比较，因此每次预测的复杂度是O(n)，n为训练集规模。在这个过程中，我们可以统计各个分相似度的IDF值，均值，方差，标准差，然后对4个相似度进行标准化:(x-均值)/方差.</p>
+<p>6.上面四个部分的相似度的加权和为最终的两个页面的相似度，权值由向量weight控制，通过10折叠交叉验证+网格搜索得到。</p>
+<h2 id="Labels：（命名实体的分类）"><a href="#Labels：（命名实体的分类）" class="headerlink" title="Labels：（命名实体的分类）"></a>Labels：（命名实体的分类）</h2><p><img src="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/2.jpg" alt="分类"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="ckrebbifx0005do7hagmvgrij" data-title="小领域知识库介绍与构建（一）" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="tag">知识图谱</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-figure-test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/figure-test/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T02:05:53.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/figure-test/">figure test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick-Figure-Test"><a href="#Quick-Figure-Test" class="headerlink" title="Quick Figure Test"></a>Quick Figure Test</h2><h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>图1：<br><img src="/2021/07/22/figure-test/test1.jpg" alt="ceshi1"></p>
+<p>图2：<br><img src="/2021/07/22/figure-test/test2.jpg" alt="ceshi2"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/figure-test/" data-id="ckrebbifp0000do7h1bs4fibx" data-title="figure test" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-图片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/%E5%9B%BE%E7%89%87/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T01:41:18.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/22/%E5%9B%BE%E7%89%87/">图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick-Figure-Test"><a href="#Quick-Figure-Test" class="headerlink" title="Quick Figure Test"></a>Quick Figure Test</h2><h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>图1：<br><img src="/2021/07/22/%E5%9B%BE%E7%89%87/1.jpg" alt="ceshi1"></p>
+<p>图2：<br><img src="/2021/07/22/%E5%9B%BE%E7%89%87/2.jpg" alt="ceshi2"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/%E5%9B%BE%E7%89%87/" data-id="ckrebbifv0003do7hahm5ct27" data-title="图片" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hxj大笨蛋" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/18/hxj%E5%A4%A7%E7%AC%A8%E8%9B%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-07-18T13:18:55.000Z" itemprop="datePublished">2021-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/18/hxj%E5%A4%A7%E7%AC%A8%E8%9B%8B/">hxj大笨蛋</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>猪猪猪猪猪—————–</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/18/hxj%E5%A4%A7%E7%AC%A8%E8%9B%8B/" data-id="ckrebbifw0004do7hagtp59gf" data-title="hxj大笨蛋" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdz%E5%A4%9A%E5%90%83%E7%82%B9%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%EF%BC%81%EF%BC%81%EF%BC%81/" rel="tag">hdz多吃点哈哈哈哈哈哈哈哈哈哈哈哈哈！！！</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-oyy测试文章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/18/oyy%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" class="article-date">
+  <time class="dt-published" datetime="2021-07-18T09:03:44.000Z" itemprop="datePublished">2021-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/18/oyy%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">oyy测试文章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>这是一篇测试文章，欢迎关注作者博客[1]: <a target="_blank" rel="noopener" href="https://oyy64102.github.io/">https://oyy64102.github.io/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/18/oyy%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" data-id="ckrebbifv0002do7hdygg0k5h" data-title="oyy测试文章" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/18/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2021-07-18T08:51:29.908Z" itemprop="datePublished">2021-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/07/18/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/18/hello-world/" data-id="ckrebbift0001do7h1xqd3sr2" data-title="Hello World" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdz%E5%A4%9A%E5%90%83%E7%82%B9%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%EF%BC%81%EF%BC%81%EF%BC%81/" rel="tag">hdz多吃点哈哈哈哈哈哈哈哈哈哈哈哈哈！！！</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="tag">知识图谱</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hdz%E5%A4%9A%E5%90%83%E7%82%B9%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%E5%93%88%EF%BC%81%EF%BC%81%EF%BC%81/" style="font-size: 10px;">hdz多吃点哈哈哈哈哈哈哈哈哈哈哈哈哈！！！</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 10px;">知识图谱</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/">小领域知识库介绍与构建（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/figure-test/">figure test</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/22/%E5%9B%BE%E7%89%87/">图片</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/18/hxj%E5%A4%A7%E7%AC%A8%E8%9B%8B/">hxj大笨蛋</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/18/oyy%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">oyy测试文章</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 oyy<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
