@@ -4,17 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>归档: 2021/7 | 这是OYY的个人博客</title>
+  <title>小领域知识库介绍与构建（二） | 这是OYY的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="简单加入个人对AI及CS的学习心得">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是OYY的个人博客">
-<meta property="og:url" content="http://example.com/archives/2021/07/index.html">
+  <meta name="description" content="智能工厂领域知识库构建如上图，智能工厂的数据集（知识库）构建分为4个步骤。（1）提取wiki语料库（2）分词与词性标注（3）基于启发式词性筛选（4）基于KNN对实体筛选和分类 现完成首步操作 2021年8月6日">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小领域知识库介绍与构建（二）">
+<meta property="og:url" content="http://example.com/2021/08/06/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="这是OYY的个人博客">
-<meta property="og:description" content="简单加入个人对AI及CS的学习心得">
+<meta property="og:description" content="智能工厂领域知识库构建如上图，智能工厂的数据集（知识库）构建分为4个步骤。（1）提取wiki语料库（2）分词与词性标注（3）基于启发式词性筛选（4）基于KNN对实体筛选和分类 现完成首步操作 2021年8月6日">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/08/06/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/1.png">
+<meta property="article:published_time" content="2021-08-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-06T07:52:16.536Z">
 <meta property="article:author" content="oyy">
+<meta property="article:tag" content="知识图谱">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/08/06/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/1.png">
   
     <link rel="alternate" href="/atom.xml" title="这是OYY的个人博客" type="application/atom+xml">
   
@@ -71,115 +76,55 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-07-22T02:19:36.000Z" itemprop="datePublished">7月 22</time>
+        <section id="main"><article id="post-小领域知识库介绍与构建（二）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/06/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-08-05T16:00:00.000Z" itemprop="datePublished">2021-08-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/">小领域知识库介绍与构建（一）</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      小领域知识库介绍与构建（二）
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/22/figure-test/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-07-22T02:05:53.000Z" itemprop="datePublished">7月 22</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/22/figure-test/">figure test</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/18/hxj/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-07-18T13:18:55.000Z" itemprop="datePublished">7月 18</time>
-</a>
+        <h2 id="智能工厂领域知识库构建"><a href="#智能工厂领域知识库构建" class="headerlink" title="智能工厂领域知识库构建"></a>智能工厂领域知识库构建</h2><p><img src="/2021/08/06/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/1.png" alt="过程"><br>如上图，智能工厂的数据集（知识库）构建分为4个步骤。<br>（1）提取wiki语料库<br>（2）分词与词性标注<br>（3）基于启发式词性筛选<br>（4）基于KNN对实体筛选和分类</p>
+<h3 id="现完成首步操作-2021年8月6日"><a href="#现完成首步操作-2021年8月6日" class="headerlink" title="现完成首步操作 2021年8月6日"></a>现完成首步操作 2021年8月6日</h3>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/18/hxj/">hxj</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/18/oyy%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-07-18T09:03:44.000Z" itemprop="datePublished">7月 18</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/06/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" data-id="cks01xurb0006vl7h2e5eak12" data-title="小领域知识库介绍与构建（二）" class="article-share-link">分享</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/18/oyy%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">oyy测试文章</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/07/18/hello-world/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-07-18T08:51:29.908Z" itemprop="datePublished">7月 18</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/18/hello-world/">Hello World</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="tag">知识图谱</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/22/%E5%B0%8F%E9%A2%86%E5%9F%9F%E7%9F%A5%E8%AF%86%E5%BA%93%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%9E%84%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">小领域知识库介绍与构建（一）</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
